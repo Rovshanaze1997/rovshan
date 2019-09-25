@@ -1,9 +1,0 @@
-#!/bin/bash
-
-R = 20
-
-if { $R -eq 20 }
-echo "Rovshan is 20"
-else
-echo "Rovshan is not 20"
-fi
