@@ -6,7 +6,7 @@ pipeline {
   stages {
    stage("checkout"){
     steps {
-      git "https://github.com/cfdistortion/myProject.git"
+      git "https://github.com/Rovshanaze1997/rovshan.git"
     }
    }
    stage('build') {
