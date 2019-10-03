@@ -1,30 +1,29 @@
-pipeline  {
-  agent  { label 'linux' }
-  tools  {
-  maven 'M3'
- }
+pipeline {
+  agent { label 'linux'}
+  tools {
+    maven 'M2'
+  }
   stages {
-    stage('checkout') {
+   stage("checkout"){
+    steps {
+      git "https://github.com/cfdistortion/myProject.git"
+    }
+   }
+   stage('build') {
      steps {
-      git 'https://github.com/Rovshanaze1997/rovshan.git'
-  }
- }
-  stage('Build') {
-    steps {
-       sh 'mvn clean compile '
-  }
- }
-  stage('Test') {
-    steps {
+       sh 'mvn clean compile'
+     }
+   }
+   stage('Test') {
+     steps {
        sh 'mvn test'
-        junit '**/target/surefire-reports/TEST-*.xml'
-
-  }  
- }
-  stage('Package') {
+       junit '**/target/surefire-reports/Test-8.xml'
+     }
+   }
+   stage('Package') {
      steps {
        sh 'mvn package'
+     }
+   }
   }
- }
-
-
+}
